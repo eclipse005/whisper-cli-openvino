@@ -4,6 +4,9 @@ This is the precompiled OpenVINO version of Whisper CLI for Windows, ready to us
 
 这是我在 Windows 下编译好的 OpenVINO 版 Whisper Cli，解压即用，使用 Intel 核显 NPU 进行测试通过，暂缺 VAD 功能。
 
+模型下载 https://huggingface.co/eclipse005/whisper-cli-openvino
+解压7z 压缩包，把其中内容放入models目录使用
+
 示例（Ultra 7 265k）运行:
 ```text
 whisper-cli.exe -m models/ggml-medium.en.bin -f test.wav --ov-e-device GPU -t 12 -bs 1
