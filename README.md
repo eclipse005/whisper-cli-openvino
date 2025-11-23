@@ -1,9 +1,12 @@
 # whisper-cli-openvino
+
 This is the precompiled OpenVINO version of Whisper CLI for Windows, ready to use upon extraction.
 
 这是我在 Windows 下编译好的 OpenVINO 版 Whisper Cli，解压即用，使用 Intel 核显 NPU 进行测试通过，暂缺 VAD 功能。
 
-Ultra 7 265k 运行 whisper-cli.exe -m models/ggml-medium.en.bin -f test.wav --ov-e-device GPU -t 12 -bs 1
+示例（Ultra 7 265k）运行:
+```text
+whisper-cli.exe -m models/ggml-medium.en.bin -f test.wav --ov-e-device GPU -t 12 -bs 1
 test.wav: 926.9 sec
 耗时如下:
 whisper_print_timings:     load time =  1174.16 ms
@@ -15,9 +18,12 @@ whisper_print_timings:   decode time = 191870.55 ms /  4028 runs (    47.63 ms p
 whisper_print_timings:   batchd time =     0.00 ms /     1 runs (     0.00 ms per run)
 whisper_print_timings:   prompt time = 30239.19 ms /  7314 runs (     4.13 ms per run)
 whisper_print_timings:    total time = 275198.22 ms
+```
 
-supported audio formats: flac, mp3, ogg, wav
-options:
+Supported audio formats: flac, mp3, ogg, wav
+
+Options:
+```text
   -h,        --help                 [default] show this help message and exit
   -t N,      --threads N            [4      ] number of threads to use during computation
   -p N,      --processors N         [1      ] number of processors to use during computation
@@ -74,8 +80,10 @@ options:
   --grammar GRAMMAR                 [       ] GBNF grammar to guide decoding
   --grammar-rule RULE               [       ] top-level GBNF grammar rule name
   --grammar-penalty N               [100.0  ] scales down logits of nongrammar tokens
+```
 
 Voice Activity Detection (VAD) options:
+```text
              --vad                           [false  ] enable Voice Activity Detection (VAD)
   -vm FNAME, --vad-model FNAME               [       ] VAD model path
   -vt N,     --vad-threshold N               [0.50   ] VAD threshold for speech recognition
@@ -84,3 +92,4 @@ Voice Activity Detection (VAD) options:
   -vmsd N,   --vad-max-speech-duration-s   N [FLT_MAX] VAD max speech duration (auto-split longer)
   -vp N,     --vad-speech-pad-ms           N [30     ] VAD speech padding (extend segments)
   -vo N,     --vad-samples-overlap         N [0.10   ] VAD samples overlap (seconds between segments)
+```
